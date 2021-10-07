@@ -2,11 +2,11 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Container from "@mui/material/Container";
 
-interface IContainer {
+export default function _Container({
+  children,
+}: {
   children?: JSX.Element | JSX.Element[];
-}
-
-export default function _Container({ children }: IContainer): JSX.Element {
+}): JSX.Element {
   return (
     <>
       <CssBaseline />

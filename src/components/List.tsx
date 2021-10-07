@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
-
+import Tooltip from "@mui/material/Tooltip";
 import { GetLeaks } from "../hooks/";
+import { getFavicon } from "../utils/";
 
 export default function FolderList(): JSX.Element {
   const getLeaks = GetLeaks();
@@ -14,17 +14,29 @@ export default function FolderList(): JSX.Element {
   return (
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
       {getLeaks.map(
-        (item: { provider: string; loggedIn: boolean }, i: number) => {
+        (item: { domain: any; name: string; match: boolean }, i: number) => {
+          const tempNetworkInfo = getFavicon({
+            domain: item.domain,
+            name: item.name,
+          });
+
           return (
-            <ListItem key={i}>
+            <ListItem
+              key={i}
+              onClick={() => window.open(item.domain)}
+              sx={{ cursor: "pointer" }}
+            >
               <ListItemAvatar>
-                <Avatar>
-                  <ImageIcon />
-                </Avatar>
+                <Tooltip title='Check it right now'>
+                  <Avatar
+                    src={tempNetworkInfo}
+                    sx={{ width: 36, height: 36 }}
+                  />
+                </Tooltip>
               </ListItemAvatar>
               <ListItemText
-                primary={item.provider ?? "Unknown"}
-                secondary={item.loggedIn ? "Found a match" : "No match found"}
+                primary={item.name ?? "Unknown"}
+                secondary={item.match ? "Found a match" : "No match found"}
               />
             </ListItem>
           );

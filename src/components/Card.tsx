@@ -19,7 +19,11 @@ export default function MediaCard(): JSX.Element {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button variant='outlined' size='small'>
+        <Button
+          variant='outlined'
+          size='small'
+          onClick={() => window.location.reload()}
+        >
           Refresh
         </Button>
       </CardActions>

@@ -20,7 +20,6 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
     color: "rgba(0, 0, 0, 0.87)",
     maxWidth: 300,
     fontSize: theme.typography.pxToRem(12),
-    border: "1px solid #dadde9",
   },
 }));
 
