@@ -24,9 +24,8 @@ const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
 }));
 
 export default function MenuAppBar(): JSX.Element {
-  const viewGitHub = (event: React.MouseEvent<HTMLElement>) => {
+  const viewGitHub = () =>
     window.open("https://github.com/milksense/react-leak");
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>

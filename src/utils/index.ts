@@ -1,9 +1,6 @@
-export const PLATFORMS: {
-  domain: string;
-  redirect: string;
-  name: string;
-  match: boolean;
-}[] = [
+import { IGetFavicon, IPlatforms, TGetFavicon } from "../types";
+
+export const PLATFORMS: IPlatforms[] = [
   {
     domain: "https://squareup.com",
     redirect: "/login?return_to=%2Ffavicon.ico",
@@ -224,17 +221,15 @@ export const PLATFORMS: {
   },
 ];
 
-export const getFavicon = (network: {
-  domain: string;
-  name: string;
-}): string => {
+export const getFavicon = (network: IGetFavicon): TGetFavicon => {
   let favicon = network.domain + "/favicon.ico";
 
   if (network.name === "Dropbox") {
     favicon = "https://www.dropbox.com/static/images/favicon.ico";
   }
-  if (network.name === "Youtube") {
-    favicon = "https://www.youtube.com/favicon.ico";
+  if (network.name === "YouTube") {
+    favicon =
+      "https://www.youtube.com/s/desktop/e342c29d/img/favicon_32x32.png";
   }
   if (network.name === "Gmail") {
     favicon = "https://mail.google.com/favicon.ico";
