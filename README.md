@@ -23,3 +23,9 @@ This mechanism works for almost all major web platforms, because they all have a
 
 For most web platforms there's a way to abuse the login mechanism to detect whether a user is logged in to that service.
 Although this vulnerability is well known for several years most companies won't fix it.
+
+## Metrics
+
+<p align="center">
+    <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fmilksense%2Freact-leak&count_bg=%23313131&title_bg=%23313131&icon=&icon_color=%23000000&title=views&edge_flat=false"/></a>
+</p>
