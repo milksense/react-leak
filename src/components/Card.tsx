@@ -10,7 +10,7 @@ export default function MediaCard(): JSX.Element {
     <Card sx={{ maxWidth: "100%", marginBottom: 2 }}>
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
-          Your Social Media Fingerprint
+          This React hook provides your social media fingerprint
         </Typography>
         <Typography variant='body2' color='text.secondary'>
           Without your consent most major web platforms leak whether you are

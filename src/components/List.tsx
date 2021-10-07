@@ -13,21 +13,23 @@ export default function FolderList(): JSX.Element {
 
   return (
     <List sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}>
-      {getLeaks.map((item: any, i: any) => {
-        return (
-          <ListItem key={i}>
-            <ListItemAvatar>
-              <Avatar>
-                <ImageIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText
-              primary={item.provider ?? "fuck"}
-              secondary={item.loggedIn ? "true" : "false"}
-            />
-          </ListItem>
-        );
-      })}
+      {getLeaks.map(
+        (item: { provider: string; loggedIn: boolean }, i: number) => {
+          return (
+            <ListItem key={i}>
+              <ListItemAvatar>
+                <Avatar>
+                  <ImageIcon />
+                </Avatar>
+              </ListItemAvatar>
+              <ListItemText
+                primary={item.provider ?? "Unknown"}
+                secondary={item.loggedIn ? "Found a match" : "No match found"}
+              />
+            </ListItem>
+          );
+        }
+      )}
     </List>
   );
 }
