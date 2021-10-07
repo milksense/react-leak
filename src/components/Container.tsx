@@ -6,7 +6,7 @@ interface IContainer {
   children?: JSX.Element | JSX.Element[];
 }
 
-export default function _Container({ children }: IContainer) {
+export default function _Container({ children }: IContainer): JSX.Element {
   return (
     <>
       <CssBaseline />

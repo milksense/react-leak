@@ -4,7 +4,7 @@ import Card from "./components/Card";
 import Container from "./components/Container";
 import List from "./components/List";
 
-export default function App() {
+export default function App(): JSX.Element {
   return (
     <>
       <AppBar />

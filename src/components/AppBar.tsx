@@ -2,12 +2,30 @@ import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
+import Badge from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import Tooltip, { TooltipProps, tooltipClasses } from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
-export default function MenuAppBar() {
-  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+import ImageQR from "../assets/png/qr.png";
+
+const HtmlTooltip = styled(({ className, ...props }: TooltipProps) => (
+  <Tooltip {...props} classes={{ popper: className }} />
+))(({ theme }) => ({
+  [`& .${tooltipClasses.tooltip}`]: {
+    backgroundColor: "white",
+    color: "rgba(0, 0, 0, 0.87)",
+    maxWidth: 300,
+    fontSize: theme.typography.pxToRem(12),
+    border: "1px solid #dadde9",
+  },
+}));
+
+export default function MenuAppBar(): JSX.Element {
+  const viewGitHub = (event: React.MouseEvent<HTMLElement>) => {
     window.open("https://github.com/milksense/react-leak");
   };
 
@@ -23,10 +41,35 @@ export default function MenuAppBar() {
             aria-label='account of current user'
             aria-controls='menu-appbar'
             aria-haspopup='true'
-            onClick={handleMenu}
             color='inherit'
           >
-            <GitHubIcon />
+            <HtmlTooltip
+              title={
+                <>
+                  <Typography color='inherit'>
+                    You can scan QR with Binance App
+                  </Typography>
+                  <img src={ImageQR} alt='Logo' style={{ width: "100%" }} />
+                </>
+              }
+            >
+              <Badge badgeContent={4} color='warning' variant='dot'>
+                <FavoriteBorderIcon />
+              </Badge>
+            </HtmlTooltip>
+          </IconButton>
+
+          <IconButton
+            size='large'
+            aria-label='account of current user'
+            aria-controls='menu-appbar'
+            aria-haspopup='true'
+            onClick={viewGitHub}
+            color='inherit'
+          >
+            <Tooltip title='View source'>
+              <GitHubIcon />
+            </Tooltip>
           </IconButton>
         </Toolbar>
       </AppBar>

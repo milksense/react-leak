@@ -5,7 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
-export default function MediaCard() {
+export default function MediaCard(): JSX.Element {
   return (
     <Card sx={{ maxWidth: "100%", marginBottom: 2 }}>
       <CardContent>
