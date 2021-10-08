@@ -39,9 +39,31 @@ export const GetLeaks = () => {
 
       /**
        * Special condition on next time 🤷‍♀️
+       * TODO: What is refactoring?
        */
       img.onerror = () => {
         currentSet(i);
+        dataSet((prevState): any[] => {
+          const tempArray = {
+            domain: network.domain,
+            name: network.name,
+            match: false,
+          };
+
+          if (!prevState?.[0]) {
+            notFoundSet(false);
+            return [
+              {
+                ...prevState,
+                ...tempArray,
+              },
+            ];
+          } else {
+            prevState.push(tempArray);
+
+            return [...prevState];
+          }
+        });
       };
 
       return true;
